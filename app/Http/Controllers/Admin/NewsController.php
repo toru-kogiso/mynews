@@ -42,7 +42,7 @@ class NewsController extends Controller
     $news->save();
     
       //admin/news/createにリダイレクトする
-      return redirect('admin/news/create');
+      return redirect('admin/news/');
   }
   
   public function index(Request $request)
