@@ -31,6 +31,20 @@ class ProfileController extends Controller
     return redirect('admin/profile/create');
     }
     
+    public function index(Request $request)
+  {
+    $cond_title = $request->cond_title;
+    if ($cond_title != '') {
+      //検索された検索結果を取得する
+      $posts = Profile::where('name', $cond_title)->get();
+    } else {
+      //それ以外はすべてのプロフィールを取得する
+      $posts = Profile::all();
+    }
+    return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+  
+    }
+    
     public function edit(Request $request)
     {
         //Profile Modelからデータを取得する
@@ -54,7 +68,7 @@ class ProfileController extends Controller
         //該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
         
-        return redirect('admin/profile/create');
+        return redirect('admin/profile/');
     }
     
 }
