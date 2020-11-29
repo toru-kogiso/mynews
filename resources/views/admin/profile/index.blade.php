@@ -31,10 +31,11 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="20%">氏名</th></th>
+                                <th width="5%">ID</th>
+                                <th width="20%">氏名</th>
                                 <th width="20%">性別</th>
-                                <th width="30%">趣味</th>
+                                <th width="20%">趣味</th>
+                                 <th width="30%">自己紹介</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,7 @@
                                     <td>{{ \Str::limit($profile->name, 20) }}</td>
                                     <td>{{ \Str::limit($profile->gender, 10) }}</td>
                                     <td>{{ \Str::limit($profile->hobby, 50) }}</td>
+                                     <td>{{ \Str::limit($profile->introduction, 100) }}</td>
                                     <td>
                                         <div>
                                             <a href="{{ action('Admin\ProfileController@edit' , ['id' => $profile->id]) }}">編集</a>

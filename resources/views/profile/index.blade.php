@@ -2,19 +2,31 @@
 
 @section('content')
     <div class="container">
+      <div class="header">
+          <h1>プロフィール一覧</h1>
+      </div>
         <hr color="#c0c0c0">
         @if (!is_null($headline))
             <div class="row">
                 <div class="headline col-md-8 mx-auto">
                     <div class="row">
-                        <div class="col-md-6">
-                                  <p class="name p-2">{{ str_limit($headline->name, 50) }}</p>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="col-md-6">
-                            <p class="gender mx-auto">{{ str_limit($headline->gender, 10) }}</p>
-                        </div>
+                        <div class="text col-md-6">
+                                  <div class="date">
+                                   {{ $headline->updated_at->format('Y年m月d日') }}
+                               </div>
+                               <div class="name">
+                                   {{ str_limit($headline->name, 50) }}
+                               </div>
+                               <div class="gender">
+                                   {{ str_limit($headline->body, 10) }}
+                               </div>
+                               <div class="hobby">
+                                   {{ str_limit($headline->hobby, 100) }}
+                               </div>
+                               <div class="introduction">
+                                   {{ str_limit($headline->introduction, 1500) }}
+                               </div>
+                           </div>
                     </div>
                 </div>
             </div>
